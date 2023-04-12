@@ -135,6 +135,7 @@ if __name__ == '__main__':
         VARS["SLURM_CONFIG"] = ""
         VARS["NUM_DEVICES_PER_NODE"] = args.num_nodes #args.num_devices_per_node
         VARS["ONE_NODE_DDP"] = "--one_node_ddp"
+        VARS["NUM_MACHINES"] = 1
     else:
         for x in VARS.keys():
             VARS[x] = str(VARS[x])

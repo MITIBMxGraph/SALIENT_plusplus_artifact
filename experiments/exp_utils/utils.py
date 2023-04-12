@@ -23,7 +23,7 @@ def run_experiment(args, *pos_args, job_list_file, dataset_name, num_nodes, gpu_
         additional_args = additional_args + f"--num_samplers {args.num_samplers_per_gpu}".split(" ")
     
     if dataset_name.find("MAG240") != -1:
-        additional_args = additional_args + "--train_fanouts 25 15 --test_fanouts 25 15 --valid_fanouts 25 15".split(" ")
+        additional_args = additional_args + "--train_fanouts 25 15 --test_fanouts 25 15 --valid_fanouts 25 15 --num_hidden 1024".split(" ")
 
     if pipeline_disabled:
         additional_args = additional_args + f"--pipeline_disabled {pipeline_disabled}".split(" ")

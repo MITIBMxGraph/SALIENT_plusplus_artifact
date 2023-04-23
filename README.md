@@ -282,7 +282,7 @@ python caching/parse_communication_volume_results.py --path experiments/results-
 This section will walk you through the process of running a specific set of
 prepared experiment scripts.  For custom experiments, please see the
 instructions in
-[workflows/run_custom_distributed_experiments.md](workflows/run_custom_distributed_experiments.md).
+[workflows/run_custom_distributed_experiment.md](workflows/run_custom_distributed_experiment.md).
 
 ### Configuration for SLURM cluster or local execution
 

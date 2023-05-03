@@ -523,7 +523,7 @@ struct FastSamplerConfig {
   bool pin_memory;
   bool distributed;
   RangePartitionBook partition_book;
-  Cache cache;
+  Cache* cache;
   bool force_exact_num_batches;
   size_t exact_num_batches;
   bool count_remote_frequency;
@@ -1167,7 +1167,7 @@ void fast_sampler_thread(FastSamplerSlot& slot) {
         nextTime("block2b")
         nextTime("block2b2")
         // Only check if remote vertices are cached.
-        torch::Tensor cached_bool = config.cache.nid_is_cached(remote);
+        torch::Tensor cached_bool = config.cache->nid_is_cached(remote);
         nextTime("block2c")
         torch::Tensor cached_out_of_remote_indices = cached_bool.nonzero().view(-1);
         nextTime("block2d")
@@ -1253,7 +1253,7 @@ void fast_sampler_thread(FastSamplerSlot& slot) {
 
         nextTime("block7")
         // For cached vertices, translate to indices into the local cache.
-        cached_nids = config.cache.nid2cachenid(cached);
+        cached_nids = config.cache->nid2cachenid(cached);
         nextTime("block8")
         nextTime("block9")
 
